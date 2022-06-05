@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useEffect} from "react";
 import {Panel} from "./panel";
+import BootstrapSwitchButton from "bootstrap-switch-button-react";
 
 export function DashboardKpiApp() {
 
@@ -76,13 +77,29 @@ export function DashboardKpiApp() {
         },
     ]
 
+    const [editMode, setEditMode] = useState();
+
     useEffect(() => {
     },[])
 
     return (
-        <div className="row row-cards row-deck gutters-xs" id="dashboard-kpi-app">
-            {panels.map((p) => <Panel {...p} />)}
-        </div>
+      <>
+          <div className="row mb-3" id="settings">
+              <span className='my-auto mr-2'>
+                  {'Configuration mode:'}
+              </span>
+              <BootstrapSwitchButton
+                checked={false}
+                onlabel='Enabled'
+                offlabel='Disabled'
+                width={100}
+                onChange={(checked) => setEditMode(checked)}
+              />
+          </div>
+          <div className="row row-cards row-deck gutters-xs" id="dashboard-kpi-app">
+              {panels.map((p) => <Panel {...p} />)}
+          </div>
+      </>
 
     );
 }
