@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import {useEffect} from "react";
 import {Panel} from "./panel";
 import BootstrapSwitchButton from "bootstrap-switch-button-react";
+import AddNewPanelModal from "./addNewPanelModal";
+import {Button} from "bootstrap-4-react";
 
 export function DashboardKpiApp() {
 
@@ -85,20 +87,24 @@ export function DashboardKpiApp() {
     return (
       <>
           <div className="row mb-3" id="settings">
-              <span className='my-auto mr-2'>
-                  {'Configuration mode:'}
-              </span>
-              <BootstrapSwitchButton
-                checked={false}
-                onlabel='Enabled'
-                offlabel='Disabled'
-                width={100}
-                onChange={(checked) => setEditMode(checked)}
-              />
+              <div className="col text-right">
+                  <span className='my-auto mr-2'>
+                  Configuration mode:
+                  </span>
+                  <BootstrapSwitchButton
+                    checked={false}
+                    onlabel='Enabled'
+                    offlabel='Disabled'
+                    width={100}
+                    onChange={(checked) => setEditMode(checked)}
+                  />
+                  <Button className='ml-3' primary data-toggle="modal" data-target="#exampleModal">Add New Panel</Button>
+              </div>
           </div>
           <div className="row row-cards row-deck gutters-xs" id="dashboard-kpi-app">
               {panels.map((p) => <Panel {...p} />)}
           </div>
+          <AddNewPanelModal/>
       </>
 
     );

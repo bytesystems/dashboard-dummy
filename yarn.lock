@@ -2842,6 +2842,19 @@
   "resolved" "https://registry.npmjs.org/boolbase/-/boolbase-1.0.0.tgz"
   "version" "1.0.0"
 
+"bootstrap-4-react@^0.0.59":
+  "integrity" "sha512-j3a618tWHl/ajYQi6zn0LdVfksRH+gyQ4RwIanTPin6xkHkgYfk+47ZlHFSwyiO9zVFn4xznoGjTwWA0AIlJkA=="
+  "resolved" "https://registry.npmjs.org/bootstrap-4-react/-/bootstrap-4-react-0.0.59.tgz"
+  "version" "0.0.59"
+  dependencies:
+    "bootstrap-4-required" "0.0.1"
+    "fsts" "0.0.44"
+
+"bootstrap-4-required@0.0.1":
+  "integrity" "sha512-4S6Trn9pRVSR756GRYr3hy2cZL3Vc0tw0/H9E+mbNeOR+4tn6CeRgcLx0YqZmL2XlabtEV73+XAesmwkgTDKvQ=="
+  "resolved" "https://registry.npmjs.org/bootstrap-4-required/-/bootstrap-4-required-0.0.1.tgz"
+  "version" "0.0.1"
+
 "bootstrap-switch-button-react@^1.2.0":
   "integrity" "sha512-p/l+Rp69VtXpK0Y2PR9XYE1TPuypxF+1CpBPmvLUpwXjCisuxtl2S8AF6PqeLDxizFeHuW5nUE6qnqrZY/9ZQA=="
   "resolved" "https://registry.npmjs.org/bootstrap-switch-button-react/-/bootstrap-switch-button-react-1.2.0.tgz"
@@ -4566,6 +4579,11 @@
   "integrity" "sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA=="
   "resolved" "https://registry.npmjs.org/fsevents/-/fsevents-2.3.2.tgz"
   "version" "2.3.2"
+
+"fsts@0.0.44":
+  "integrity" "sha512-0U4qvbzOE+3s2711DdszIyaAnZ3M0dbFAhnkez/ITy31MwzDI2lepGSkVeFOyx6jqWvwaSZr01RP4hdM4I8wxQ=="
+  "resolved" "https://registry.npmjs.org/fsts/-/fsts-0.0.44.tgz"
+  "version" "0.0.44"
 
 "function-bind@^1.1.1":
   "integrity" "sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A=="
