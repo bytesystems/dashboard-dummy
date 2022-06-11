@@ -52,28 +52,26 @@ export const Panel = (props) => {
     // TODO: display the cogwheel only, if edit mode of dashboard is enabled
 
     return (
-        <div className={`col-${width ? width : 1}`}>
-            <div className="card">
-                <div className="card-header">
-                    <FontAwesomeIcon icon={faCog} />
-                </div>
-                <div className="card-body p-3 text-center">
-
-                    {panelState.loading && (
-                        <div className="dimmer active">
-                            <div className="loader" />
-                            <div className="dimmer-content" style={{minHeight: '75px'}} />
-                        </div>
-                    )}
-                    {!panelState.loading && !panelState.error && (<>
-                        <div className="text-right text-green">
-                            22,48% <FontAwesomeIcon icon={faChevronDown} />
-                        </div>
-                        <div className="h4 m-0">{getValue()}</div>
-                        <div className="text-muted mb-4">{label}</div>
-                    </>)}
-                </div>
-            </div>
+      <div className={"card m-3"}>
+        <div className="card-header">
+          <FontAwesomeIcon icon={faCog} />
         </div>
+        <div className="card-body p-3 text-center">
+
+          {panelState.loading && (
+            <div className="dimmer active">
+              <div className="loader" />
+              <div className="dimmer-content" style={{minHeight: '75px'}} />
+            </div>
+          )}
+          {!panelState.loading && !panelState.error && (<>
+            <div className="text-right text-green">
+              22,48% <FontAwesomeIcon icon={faChevronDown} />
+            </div>
+            <div className="h4 m-0">{getValue()}</div>
+            <div className="text-muted mb-4">{label}</div>
+          </>)}
+        </div>
+      </div>
     )
 }

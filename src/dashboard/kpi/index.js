@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import {useEffect} from "react";
-import {Panel} from "./panel";
 import BootstrapSwitchButton from "bootstrap-switch-button-react";
 import AddNewPanelModal from "./addNewPanelModal";
 import {Button} from "bootstrap-4-react";
+import DnDList from "./DnDList";
 
 export function DashboardKpiApp() {
 
@@ -44,7 +44,7 @@ export function DashboardKpiApp() {
     // ToDo: generate panels array dynamically from user configuration
     const panels = [
         {
-            key: 1, // key should be a auto generated guid
+            key: '1', // key should be a auto generated guid
             panel: 'payments', // link to key from available panels
             model: 'valueModel', // from available panels
             format: 'currency', // from config dialog
@@ -53,14 +53,14 @@ export function DashboardKpiApp() {
             label: 'Zahlungseingang' // from config dialog
         },
         {
-            key: 2,
+            key: '2',
             panel: 'payments',
             model: 'valueModel',
             select: 'count',
             label: 'Zahlungen'
         },
         {
-            key: 3,
+            key: '3',
             panel: 'payments',
             model: 'valueModel',
             format: 'currency',
@@ -70,7 +70,7 @@ export function DashboardKpiApp() {
             forecast: true              // only available on forecastModel
         },
         {
-            key: 4,
+            key: '4',
             panel: 'payments',
             model: 'valueModel',
             select: 'count',
@@ -101,10 +101,8 @@ export function DashboardKpiApp() {
                   <Button className='ml-3' primary data-toggle="modal" data-target="#exampleModal">Add New Panel</Button>
               </div>
           </div>
-          <div className="row row-cards row-deck gutters-xs" id="dashboard-kpi-app">
-              {panels.map((p) => <Panel {...p} />)}
-          </div>
           <AddNewPanelModal/>
+          <DnDList panels={panels}/>
       </>
 
     );
