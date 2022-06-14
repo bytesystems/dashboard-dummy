@@ -102,7 +102,7 @@ export function DashboardKpiApp() {
               </div>
           </div>
           <AddNewPanelModal/>
-          <DnDList panels={panels}/>
+          <DnDList panels={panels} isDragDisabled={!editMode}/>
       </>
 
     );

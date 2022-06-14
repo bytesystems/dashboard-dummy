@@ -9,9 +9,9 @@ const reorder = (list, startIndex, endIndex) => {
   return result;
 };
 
-function DraggablePanel({ panel, index }) {
+function DraggablePanel({ panel, index, isDragDisabled }) {
   return (
-    <Draggable draggableId={panel.key} index={index}>
+    <Draggable draggableId={panel.key} index={index} isDragDisabled={isDragDisabled}>
       {provided => (
         <div
           ref={provided.innerRef}
@@ -25,13 +25,13 @@ function DraggablePanel({ panel, index }) {
   );
 }
 
-const PanelList = React.memo(function PanelList({ panels }) {
+const PanelList = React.memo(function PanelList({ panels, isDragDisabled }) {
   return panels.map((panel, index) => (
-    <DraggablePanel panel={panel} index={index} key={panel.key} />
+    <DraggablePanel panel={panel} index={index} key={panel.key} isDragDisabled={isDragDisabled}/>
   ));
 });
 
-function DnDList({ panels }) {
+function DnDList({ panels, isDragDisabled }) {
   const [state, setState] = useState({ panels: panels });
 
   function onDragEnd(result) {
@@ -58,7 +58,7 @@ function DnDList({ panels }) {
         {provided => (
           <div ref={provided.innerRef} {...provided.droppableProps} className='d-flex'>
             <div className="row">
-              <PanelList panels={state.panels} />
+              <PanelList panels={state.panels} isDragDisabled={isDragDisabled}/>
             </div>
             {provided.placeholder}
           </div>
