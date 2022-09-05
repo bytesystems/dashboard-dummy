@@ -1,0 +1,12 @@
+.close {
+	font-size: 1rem;
+	line-height: 1.5;
+	transition: .3s color;
+	span:first-child {
+		display: none;
+	}
+	&:before {
+		content: '\ea00';
+		font-family: feather, sans-serif;
+	}
+}

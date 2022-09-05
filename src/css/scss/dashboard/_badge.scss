@@ -1,0 +1,14 @@
+.badge {
+	color: #fff;
+}
+
+.badge-default {
+	background: $gray-200;
+	color: $gray-600;
+}
+
+@each $color, $value in $colors {
+	.badge-#{$color} {
+		@include badge-variant($value);
+	}
+}

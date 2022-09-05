@@ -1,10 +1,10 @@
 import './App.css';
-import {DashboardKpiApp} from "./dashboard/kpi";
+import {DashboardApp} from "./dashboard/dashboard_app";
 
 function App() {
   return (
     <div className="App">
-        <DashboardKpiApp />
+        <DashboardApp />
     </div>
   );
 }

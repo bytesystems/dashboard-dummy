@@ -2,10 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
+import './css/tabler.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-const root = document.getElementById('root');
+const root = document.getElementById('dashboard-app');
 ReactDOM.render(
   <React.StrictMode>
     <App />

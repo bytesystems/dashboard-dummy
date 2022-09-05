@@ -1,8 +1,6 @@
 const wait = (time) => new Promise((res) => setTimeout(res, time));
 
 
-
-
 const panelData = {
     payments: {
         "current": {
@@ -66,11 +64,15 @@ const panelData = {
 
 }
 
-
-
 export const getPanelData = async (panel) => {
     await wait(200);
     const data = panelData[panel];
     console.log(data);
     return Promise.resolve(panelData[panel])
+}
+
+export const savePanels = async (panels) => {
+    await wait(200);
+    console.log(panels);
+    return Promise.resolve()
 }

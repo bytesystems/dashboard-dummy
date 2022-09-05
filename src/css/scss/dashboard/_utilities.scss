@@ -1,0 +1,38 @@
+@each $color, $value in $colors {
+	@include bg-variant(".bg-#{$color}", $value);
+
+	.text-#{$color} {
+		color: $value !important;
+	}
+
+	.text-#{$color}-lightest { color: mix($value, #fff, 10%) !important; }
+	.text-#{$color}-lighter { color: mix($value, #fff, 30%) !important; }
+	.text-#{$color}-light { color: mix($value, #fff, 70%) !important; }
+	.text-#{$color}-dark { color: mix($value, #000, 80%) !important; }
+	.text-#{$color}-darker { color: mix($value, #000, 80%) !important; }
+	.text-#{$color}-darkest { color: mix($value, #000, 80%) !important; }
+}
+
+
+.icon {
+	color: $text-muted !important;
+
+	i {
+		vertical-align: -1px;
+	}
+
+	@at-root a#{&} {
+		text-decoration: none;
+		cursor: pointer;
+
+		&:hover {
+			color: $body-color !important;
+		}
+	}
+}
+
+.o-auto   { overflow: auto !important; }
+.o-hidden { overflow: hidden !important; }
+
+.shadow	      { box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important; }
+.shadow-none  { box-shadow: none !important; }

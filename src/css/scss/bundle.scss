@@ -1,0 +1,463 @@
+/**
+Dashboard UI
+ */
+
+@import 'variables';
+@import '../../../node_modules/bootstrap/scss/bootstrap.scss';
+@import '../../../node_modules/tempusdominus-bootstrap-4/src/sass/_tempusdominus-bootstrap-4.scss';
+@import 'dashboard/dashboard';
+@import '~@simonwep/pickr/dist/themes/monolith.min.css';
+@import '~react-day-picker/lib/style.css';
+@import "~react-widgets/styles.css";
+@import "./../sass/tippy.sass";
+
+@import '~react-rrule-generator/build/styles.css';
+
+.dialog-950 {
+  width: 950px;
+  padding: 1rem;
+  margin: 0;
+}
+
+#CashDeskBill {
+  tr {
+    td,
+    th {
+      &:first-child {
+        padding-left: $table-cell-padding;
+      }
+
+      &:last-child {
+        padding-right: $table-cell-padding;
+        width: 6rem
+      }
+
+      input {
+        width: 6rem;
+        text-align: right;
+        font-size: inherit !important;
+        line-height: 1.5;
+        margin: 0;
+        height: calc(1.2rem + 2px);
+      }
+    }
+  }
+}
+
+.hc_block {
+  .form-group {
+    display: block;
+    margin: 0 0 1rem 0;
+  }
+}
+
+.form-control.tt-input {
+  padding-left: 0.2rem !important;
+}
+
+.btn-sm {
+  height: calc(1.6rem + 2px);
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
+  line-height: 1.84615;
+}
+
+.custom-control-label.no-label {
+  // Background-color and (when enabled) gradient
+  &::before {
+    left: 0.0rem;
+  }
+
+  // Foreground (icon)
+  &::after {
+    left: 0.0rem;
+  }
+}
+
+.custom-control.no-label {
+  min-height: 0;
+  padding-left: $custom-control-indicator-size;
+}
+
+table.dataTable thead {
+  th {
+    &.sorting, &.sorting_asc, &.sorting_desc {
+      padding-right: 1.3em;
+    }
+  }
+}
+
+table.dataTable tbody {
+  td, th {
+    position: relative;
+
+    &.select-checkbox {
+      &:before, &::after {
+        position: absolute;
+        top: 0.25rem / 2 * 3;
+        right: 0;
+        display: block;
+        width: $custom-control-indicator-size;
+        height: $custom-control-indicator-size;
+        content: "";
+      }
+
+      &:before {
+        pointer-events: none;
+        background-color: $custom-control-indicator-bg;
+        border: $input-border-color solid $custom-control-indicator-border-width;
+
+        @include box-shadow($custom-control-indicator-box-shadow);
+        @include border-radius($custom-checkbox-indicator-border-radius);
+
+        transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+      }
+    }
+  }
+
+  tr.selected {
+    td, th {
+      &.select-checkbox {
+        &:before {
+          color: $custom-control-indicator-checked-color;
+          border-color: $custom-control-indicator-checked-border-color;
+          @include gradient-bg($custom-control-indicator-checked-bg);
+          @include box-shadow($custom-control-indicator-checked-box-shadow);
+        }
+
+        &:after {
+          background: no-repeat 50% / #{$custom-control-indicator-bg-size};
+          background-image: $custom-checkbox-indicator-icon-checked;
+        }
+      }
+    }
+  }
+}
+
+.price-input {
+  color: mix($cyan, #fff, 70%);
+}
+
+.price-input:hover {
+  text-decoration: underline;
+}
+
+.c3-legend-background {
+  fill: transparent;
+  stroke: lightgray;
+  stroke-width: 0;
+}
+
+.booking-widget {
+  .selectgroup-item {
+    flex-grow: 1 !important;
+    width: 10em;
+  }
+}
+
+#external-events-listing .fc-event {
+  background-color: #ffffff;
+}
+
+.fc-v-event .fc-event-main {
+  color: #000;
+}
+
+.fc-timegrid-event-harness
+{
+  //left: -2px !important;
+  //right: -2px !important;
+}
+
+.fc-timegrid-event {
+  border-radius: 0;
+}
+
+.is-holiday {
+  background-color: #e78c8c;
+}
+
+.rw-time-input {
+  min-height: calc(1.6rem + 2px);
+  @include font-size($input-font-size);
+  @include border-radius($input-border-radius, 0);
+
+  @include box-shadow($input-box-shadow);
+  @include transition($input-transition);
+
+
+  color: $input-color;
+  border: $input-border-width solid $input-border-color;
+}
+
+.DayPickerInput > input {
+  display: block;
+  width: 100%;
+  height: calc(1.6rem + 2px);
+  padding: 0 0.2rem;
+  font-family: $input-font-family;
+  @include font-size($input-font-size);
+  font-weight: $input-font-weight;
+  line-height: $input-line-height;
+  color: $input-color;
+  background-color: $input-bg;
+  background-clip: padding-box;
+  border: $input-border-width solid $input-border-color;
+
+  margin-bottom: 0.15rem;
+
+  // Note: This has no effect on <select>s in some browsers, due to the limited stylability of `<select>`s in CSS.
+  @include border-radius($input-border-radius, 0);
+
+  @include box-shadow($input-box-shadow);
+  @include transition($input-transition);
+
+  // Unstyle the caret on `<select>`s in IE10+.
+  &::-ms-expand {
+    background-color: transparent;
+    border: 0;
+  }
+
+  // Remove select outline from select box in FF
+  &:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 $input-color;
+  }
+
+  // Customize the `:focus` state to imitate native WebKit styles.
+  @include form-control-focus($ignore-warning: true);
+
+  // Placeholder
+  &::placeholder {
+    color: $input-placeholder-color;
+    // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
+    opacity: 1;
+  }
+
+  // Disabled and read-only inputs
+  //
+  // HTML5 says that controls under a fieldset > legend:first-child won't be
+  // disabled if the fieldset is disabled. Due to implementation difficulty, we
+  // don't honor that edge case; we style them as disabled anyway.
+  &:disabled,
+  &[readonly] {
+    background-color: $input-disabled-bg;
+    // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655.
+    opacity: 1;
+  }
+}
+
+
+// New Calendar tweaks
+
+@keyframes borderBlink {
+  from, to {
+    opacity: 0.7;
+
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.card-fullscreen > .card-status {
+    display: none;
+}
+
+
+.fc {
+  flex: 1 1 auto;
+  margin: 0;
+
+  .fc-event {
+    transition: opacity 383ms ease-in-out;
+
+    &.fc-event-highlight::after {
+      content: '';
+      position: absolute;
+      top: -3px;
+      left: -3px;
+      bottom: -3px;
+      right: -3px;
+      border: 2px #e23e3d solid;
+      animation: borderBlink 1.5s ease infinite;
+    }
+
+    &.fc-recurring {
+      &:before {
+        font-family: 'feather' !important;
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        content: "\e9bb";
+        position:absolute;
+        color: #3e3e3e;
+        top: 2px;
+        right: 2px;
+        font-size: 12px;
+      }
+    }
+  }
+
+  .fc-bg-event {
+    &.fc-holiday {
+      background-color: rgba(255,0,0,0.3);
+      opacity: 1;
+      .fc-event-title {
+        color: #000;
+      }
+    }
+  }
+
+
+}
+
+.fc-day-mon + .fc-day-tue,
+.fc-day-tue + .fc-day-wed,
+.fc-day-wed + .fc-day-thu,
+.fc-day-thu + .fc-day-fri,
+.fc-day-fri + .fc-day-sat,
+.fc-day-sat + .fc-day-sun,
+{
+    border-left: 2px solid #7bd235 !important;
+}
+
+$manager-card-max-height: 200px;
+.card {
+  &.card-small {
+    .card-header {
+      min-height: 0;
+    }
+  }
+  .card-header.manager {
+    padding-top: 0;
+    padding-bottom: 0;
+    min-height: 0;
+    max-height: 0;
+    transition: max-height 140ms ease-in-out;
+    flex-shrink: 0;
+
+    &.manager--visible {
+      height: auto;
+      max-height: 250px;
+
+      .manager__content {
+        visibility: visible;
+        opacity: 1;
+        align-items: stretch;
+        max-height: $manager-card-max-height;
+      }
+    }
+    .manager__content {
+      max-height: 0;
+      display: flex;
+      opacity: 0;
+      transition: max-height 140ms ease-in-out, opacity 140ms ease-in-out;
+      margin: 0.5rem 0;
+
+      .manager__card {
+        max-height: $manager-card-max-height;
+        overflow: hidden;
+      }
+    }
+
+
+  }
+}
+
+.DayPickerInput-Overlay {
+  z-index: 90000;
+}
+
+button.selectgroup-button {
+  margin-right: 0.5rem;
+  flex-grow: 0;
+  background-color: transparent;
+  &.active {
+    border-color: #467fcf;
+    color: #467fcf;
+    background: #edf2fa;
+  }
+}
+
+.selectgroup-vertical > .selectgroup-button:not(:last-child) {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.selectgroup-vertical >  .selectgroup-button:not(:first-child) {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.btn.btn-icon.btn-icon-sm {
+
+}
+
+$modal-left-right-width: 480px;
+// Modal left/right
+.modal.left .modal-dialog,
+.modal.right .modal-dialog {
+  position: fixed;
+  margin: auto;
+  width: $modal-left-right-width;
+  height: 100%;
+  -webkit-transform: translate3d(0%, 0, 0);
+  -ms-transform: translate3d(0%, 0, 0);
+  -o-transform: translate3d(0%, 0, 0);
+  transform: translate3d(0%, 0, 0);
+}
+
+.modal.left .modal-content,
+.modal.right .modal-content {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.modal.left .modal-body,
+.modal.right .modal-body {
+  padding: 15px 15px 80px;
+}
+
+/*Left*/
+.modal.left.fade .modal-dialog{
+  left: -$modal-left-right-width;
+  -webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
+  -moz-transition: opacity 0.3s linear, left 0.3s ease-out;
+  -o-transition: opacity 0.3s linear, left 0.3s ease-out;
+  transition: opacity 0.3s linear, left 0.3s ease-out;
+}
+
+.modal.left.fade.in .modal-dialog{
+  left: 0;
+}
+
+/*Right*/
+.modal.right.fade .modal-dialog {
+  right: -$modal-left-right-width;
+  -webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+  -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+  -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+  transition: opacity 0.3s linear, right 0.3s ease-out;
+}
+
+.modal.right.fade.in .modal-dialog {
+  right: 0;
+}
+
+/* ----- MODAL STYLE ----- */
+.modal-content {
+  border-radius: 0;
+  border: none;
+}
+
+.modal-header {
+  border-bottom-color: #EEEEEE;
+  background-color: #FAFAFA;
+}
