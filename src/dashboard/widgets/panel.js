@@ -88,7 +88,7 @@ export const Panel = forwardRef((props,ref) => {
                 <div className="btn btn-xs" {...provided.dragHandleProps} style={{cursor: "move"}}><i className="fe fe-move" /></div>
                 <div className="card-options mr-0">
                     <button type="button" className="btn btn-secondary btn-xs mx-1" onClick={() => onEdit(key)}><i className="fe fe-settings" /></button>
-                    <button type="button" className="btn btn-danger btn-xs"><i className="fe fe-x" /></button>
+                    <button type="button" className="btn btn-danger btn-xs" onClick={() => onDelete(key)}><i className="fe fe-x" /></button>
                 </div>
             </div>
         )
