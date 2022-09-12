@@ -36,8 +36,13 @@ function WrappedDashboardApp(props) {
         setShow(true);
     }
 
-    const handleDelete = () => {
+    const handleDelete = (key) => {
         //ToDo: implement this method
+        
+        // set state excluding the deleted item 
+        setState({
+            panels: state.panels.filter((panel) => panel.key !== key),
+        });
     }
 
     const handleSave = (panel) => {
